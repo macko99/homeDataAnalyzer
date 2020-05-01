@@ -14,8 +14,9 @@ H = 278
 f_size = 5
 c_height = 0.025 * H
 rep = FPDF()
-rep.add_font('DejaVu', '', 'DejaVuSansCondensed.ttf',  uni=True)
-rep.add_font('DejaVuBold', '', 'DejaVuSansCondensed-Bold.ttf',  uni=True)
+rep.add_font('DejaVu', '', 'C:/Windows/Fonts/arial.ttf',  uni=True)
+rep.add_font('DejaVuBold', '', 'C:/Windows/Fonts/arialNB.ttf',  uni=True)
+
 
 
 def populate_data():
