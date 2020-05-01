@@ -17,6 +17,7 @@ def gui():
         price = float(e2.get())
         greeting.destroy()
         greeting2.destroy()
+        greeting3.destroy()
         button.destroy()
         e1.destroy()
         e2.destroy()
@@ -45,11 +46,13 @@ def gui():
 
     window = tk.Tk()
     window.wm_title("Raport domowy")
+    window.geometry("460x320")
 
     greeting = tk.Label(text="Wprowadź moc żarówki (Watt)", width=60, height=5)
     e1 = tk.Entry()
     e2 = tk.Entry()
     greeting2 = tk.Label(text="Wprowadź cenę 1kWh energii (zł)", width=60, height=5)
+    greeting3 = tk.Label(text="", width=60, height=1)
     button = tk.Button(text="START")
     button.bind("<Button-1>", run)
 
@@ -59,6 +62,7 @@ def gui():
     greeting2.pack()
     e2.pack()
     e2.insert(0, price)
+    greeting3.pack()
     button.pack()
     e1.focus_set()
     window.mainloop()

@@ -38,6 +38,8 @@ sensors = ["lema/sensors/temp/core"]
 garage = "lema/home/garage"
 
 not_mapped = set()
+PNGs = set()
+
 topics_size = len(topics)
 lights_size = len(lights)
 utils_size = len(utils)
