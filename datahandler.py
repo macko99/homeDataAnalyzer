@@ -8,6 +8,7 @@ import mapping
 from models import *
 
 path = "Wyniki/"
+pdf_path = "PDFs/"
 URL = "http://###:###@192.168.1.3:1880/log"
 W = 190
 H = 278
@@ -197,9 +198,11 @@ def visualize_data():
         if X and Y:
             zipped = sorted(zip(X, Y), key=lambda x: x[1], reverse=True)
             unzipped = list(zip(*zipped))
-            X = unzipped[0]
             Y = unzipped[1]
+            X = list(range(0, len(Y)))
+            my_xticks = unzipped[0]
             plt.clf()
+            plt.xticks(X, my_xticks)
             plt.bar(X, Y)
             plt.title(str(mapping.weekday(day)))
             plt.ylabel('min')
@@ -217,11 +220,14 @@ def visualize_data():
 
     X = []
     Y = []
+    my_xticks = []
     for day in range(0, 7):
-        X.append(mapping.weekday(day))
+        my_xticks.append(mapping.weekday(day))
     for item in timeON:
         Y.append(sum(item) / 3600)
     plt.clf()
+    X = list(range(0, len(Y)))
+    plt.xticks(X, my_xticks)
     plt.bar(X, Y)
     plt.title("Tydzień")
     plt.ylabel('godz')
@@ -236,7 +242,7 @@ def visualize_data():
         rep.image(imgPath, 30, 10, 160, 120)
         isTwo = True
 
-    rep.output("raport_" + str(datetime.now())[0:10].replace("-", "_") + ".pdf")
+    rep.output(pdf_path + "raport_" + str(datetime.now())[0:10].replace("-", "_") + ".pdf")
 
 
 def init():

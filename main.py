@@ -3,6 +3,7 @@ import sys
 import tkinter as tk
 
 from datahandler import *
+
 price = 0.60
 power = 10
 
@@ -71,4 +72,6 @@ def gui():
 if __name__ == "__main__":
     if not os.path.exists(path):
         os.makedirs(path)
+    if not os.path.exists(pdf_path):
+        os.makedirs(pdf_path)
     gui()
